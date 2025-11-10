@@ -1,6 +1,7 @@
 import os
 import json
 import git
+from datetime import datetime
 from flask import render_template, Flask, abort, request
 
 app = Flask(__name__)
@@ -22,7 +23,7 @@ def index():
 
 @app.route("/health")
 def health():
-    return "OK", 200
+    return render_template("health.html", time=datetime.utcnow().strftime("%d %B %Y %H:%M:%S"))
     
 @app.route("/<pageId>")
 def renderPage(pageId):
@@ -52,6 +53,7 @@ def renderPage(pageId):
 @app.errorhandler(404)
 def pageNotfound(error):
     return render_template('404.html'), 404
+
 
 
 
