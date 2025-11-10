@@ -1,9 +1,21 @@
 import os
 import json
-from flask import render_template, Flask, abort
+import gut
+from flask import render_template, Flask, abort, requests
 
 app = Flask(__name__)
 
+@app.route('/webhook', methods=['POST'])
+    def webhook():
+        if request.method == 'POST':
+            repo = git.Repo('./myproject')
+            origin = repo.remotes.origin
+            repo.create_head('master', 
+        origin.refs.master).set_tracking_branch(origin.refs.master).checkout()
+            origin.pull()
+            return '', 200
+        else:
+            return '', 400
 
 @app.route("/")
 def index():
@@ -37,5 +49,3 @@ def renderPage(pageId):
 @app.errorhandler(404)
 def pageNotfound(error):
     return render_template('404.html'), 404
-
-app.run("0.0.0.0", 5000, debug=True)
