@@ -30,7 +30,7 @@ def renderPage(pageId):
             validPages.append(page[:-5])
 
     if pageId in validPages:
-        with open(f"({DATAPATH}/{pageId}.json", "r") as f:
+        with open(f"{DATAPATH}/{pageId}.json", "r") as f:
             pageData = json.load(f)
 
             TITLE = pageData.get("title")
@@ -48,6 +48,7 @@ def renderPage(pageId):
 @app.errorhandler(404)
 def pageNotfound(error):
     return render_template('404.html'), 404
+
 
 
 
