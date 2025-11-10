@@ -62,7 +62,14 @@ def webhook():
         repo = git.Repo('/home/o2081/website')
         origin = repo.remotes.origin
 
-        pull_info = origin.pull()
+        try:
+            origin.fetch()
+            repo.git.reset("--hard", "origin/main")
+            pull_info = origin.pull()
+            
+        except git.exc.GitCommandError as e:
+            print(f"Git error: {e}")
+            return json.dumps({'msg': 'Git update failed!'})
 
         if len(pull_info) == 0:
             return json.dumps({'msg': "Didn't pull any information from remote!"})
@@ -111,5 +118,6 @@ def renderPage(pageId):
 def pageNotfound(error):
     return render_template('404.html'), 404
     
+
 
 
