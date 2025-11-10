@@ -1,12 +1,10 @@
 import git
 import os, json
 import hashlib, hmac
-from dotenv import load_dotenv
 from datetime import datetime
 from flask import render_template, Flask, abort, request
 
 app = Flask(__name__)
-load_dotenv()
 
 DATAPATH = '/home/o2081/website/data'
 w_secret = os.environ['WEBHOOK_SECRET']
@@ -113,3 +111,4 @@ def renderPage(pageId):
 def pageNotfound(error):
     return render_template('404.html'), 404
     
+
