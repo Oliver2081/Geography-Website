@@ -3,15 +3,15 @@
     "specRef": "3.3.1",
     "sections": [
         {
-            "title": "Coastal Processes",
+            "title": "Wave Types",
             "content": [
                 {
                     "style": "h2",
-                    "data": "Constructive and Destructive Waves"
+                    "data": "Destructive Waves"
                 },
                 {
-                    "style": "h3",
-                    "data": "Destructive Waves"
+                    "style": "ul",
+                    "data": "• Weak Swash\n• Strong Backwash"
                 }
             ]
         }
