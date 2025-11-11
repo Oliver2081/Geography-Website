@@ -6,20 +6,12 @@
             "title": "Coastal Processes",
             "content": [
                 {
-                    "style": "h3",
+                    "style": "h2",
                     "data": "Constructive and Destructive Waves"
                 },
                 {
-                    "style": "rowtable",
-                    "data": {
-                        "headers": ["Wave Type", "Properties"],
-                        "rows": [
-                            [
-                                "Constructive",
-                                "• Strong Swash\n• Weak Backwash"
-                            ]
-                        ]
-                    }
+                    "style": "h3",
+                    "data": "Destructive Waves"
                 }
             ]
         }
