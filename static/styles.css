@@ -55,9 +55,9 @@ h2 {
 
 /* --- Navigation --- */
 nav {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display: none; /* start hidden */
+    flex-direction: column;
+    width: 100%;
 }
 
 nav a,
@@ -109,9 +109,8 @@ nav a:hover,
 }
 
 /* --- Hamburger Button --- */
-/* keep original default (hidden on desktop) */
 .hamburger {
-    display: none;
+    display: flex; /* ALWAYS show hamburger */
     flex-direction: column;
     cursor: pointer;
     margin-left: auto;
@@ -125,65 +124,39 @@ nav a:hover,
     transition: 0.4s;
 }
 
-/* Force hamburger to show when nav would be hidden (small screens).
-   This line is minimal and will be overridden on desktop by the media query below. */
-.hamburger.force-visible {
-    display: flex !important;
-}
-
 /* --- Nav Links Container --- */
 .nav-links {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    display: none; /* hidden by default */
+    flex-direction: column;
+    width: 100%;
+    background-color: #222831;
+    margin-top: 10px;
+    border-top: 1px solid #333;
+    padding-top: 10px;
 }
 
 .nav-links.active {
-    display: flex;
+    display: flex; /* toggle visibility with JS */
 }
 
-/* --- Mobile Responsive --- */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    /* show hamburger on small screens */
-    .hamburger {
-        display: flex;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #222831;
-        margin-top: 10px;
-        border-top: 1px solid #333;
-        padding-top: 10px;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .dropdown-content {
-        position: static;
-        background-color: #333;
-        box-shadow: none;
-        border-radius: 0;
-    }
-
-    .dropdown-content a {
-        padding-left: 20px;
-    }
+.dropdown-content {
+    position: static;
+    background-color: #333;
+    box-shadow: none;
+    border-radius: 0;
 }
 
-/* --- Desktop: ensure hamburger hidden on larger screens --- */
+.dropdown-content a {
+    padding-left: 20px;
+}
+
+/* --- Desktop style: nav horizontal --- */
 @media (min-width: 769px) {
-    .hamburger {
-        display: none;
+    nav {
+        flex-direction: row;
+        width: auto;
     }
-        }
+    nav a, .dropdown button {
+        margin: 0 10px;
+    }
+    }
