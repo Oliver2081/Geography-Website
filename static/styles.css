@@ -192,11 +192,16 @@ nav a:hover,
         font-size: 18px;   /* Smaller font on mobile */
     }
     nav a .dropdown button {
-;
-    font-size: 10px;
-}
+        font-size: 10px;
+    }
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        }
     
 }
+
 
 
 
